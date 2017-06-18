@@ -1,0 +1,15 @@
+<h1>{{test}}</h1>
+<p ng-repeat="service in services">
+    {{service.name}}
+</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Instances</th>
+    </tr>
+    <tr ng-repeat="service in services">
+        <td>{{service.name}}</td>
+        <td>{{service.serviceInstances.length}}</td>
+    </tr>
+</table>
