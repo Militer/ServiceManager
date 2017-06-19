@@ -13,7 +13,7 @@
     <title>Car race</title>
 
     <link rel="stylesheet" href="app/bower_components/angular-material/angular-material.min.css">
-    <!--<link rel="stylesheet" href="app/app.css">-->
+    <link rel="stylesheet" href="app/app.css">
     <link href="app/bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css"/>
     <!-- module -->
 
@@ -23,7 +23,8 @@
     <script src="app/bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="app/bower_components/angular-material/angular-material.min.js"></script>
     <script src="app/bower_components/angular-resource/angular-resource.min.js"></script>
-    <script type="text/javascript" src="app/bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+    <script src="app/bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="app/bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
 
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
@@ -33,6 +34,7 @@
 
     <script src="app/core/core.module.js"></script>
     <script src="app/core/rest/service.service.js"></script>
+    <script src="app/core/rest/monitoring.service.js"></script>
 </head>
 <body>
 
@@ -43,7 +45,7 @@
                 <md-icon md-svg-icon="app/img/icons/ic_menu_white_24px.svg"></md-icon>
             </md-button>
         </a>
-        <h2 flex md-truncate>Car racing</h2>
+        <h2 flex md-truncate>Monitoring service</h2>
         <md-button class="md-icon-button" aria-label="user">
             <md-icon md-svg-icon="app/img/icons/ic_account_circle_white_24px.svg"></md-icon>
         </md-button>

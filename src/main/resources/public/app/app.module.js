@@ -6,5 +6,6 @@ angular.module('myApp', [
     'ngMaterial',
     'ngResource',
     'service',
-    'core'
+    'core',
+    'chart.js'
 ]);
