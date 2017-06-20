@@ -5,14 +5,10 @@ angular
     .module('core')
     .service('MonitoringService', ['$resource',
         function ($resource) {
-            return {
-                query: function (url) {
-                    return $resource(url + '/request-monitor', {}, {
-                        query: {
-                            isArray: true
-                        }
-                    });
+            return $resource('/monitoring/:host/:port', {}, {
+                get: {
+                    isArray: true
                 }
-            }
+            });
         }
     ]);

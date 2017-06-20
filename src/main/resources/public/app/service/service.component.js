@@ -6,20 +6,30 @@ angular
     .controller('ServiceController', ['$scope', 'Service', 'MonitoringService',
         function ($scope, Service, MonitoringService) {
             $scope.test = 'tes2t';
+            $scope.serviceInstances = [];
             var services = Service.query(function () {
                 $scope.services = services;
-                for (var index in services){
+                var currentInstance = 0;
+                for (var index in services) {
                     var serviceInstances = services[index].serviceInstances;
                     for (var index2 in serviceInstances) {
+                        $scope.serviceInstances[currentInstance] = serviceInstances[index2];
+
                         console.log("ServiceId: " + serviceInstances[index2].serviceId);
                         console.log("Port: " + serviceInstances[index2].port);
                         console.log("IP: " + serviceInstances[index2].instanceInfo.ipAddr);
+
+                        MonitoringService.get({
+                            host: serviceInstances[index2].instanceInfo.ipAddr,
+                            port: serviceInstances[index2].port
+                        }, function (result) {
+                            console.log('result: ' + JSON.stringify(result));
+                        }, function (error) {
+                            console.log('Error: ' + JSON.stringify(error));
+                        });
+                        currentInstance++;
                     }
                 }
-            });
-
-            var monitoringServices = MonitoringService.query('http://172.18.0.3:8081').query(function(result){
-                console.log("Monitoring: " + JSON.stringify(result));
             });
 
             $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
@@ -32,7 +42,7 @@ angular
             $scope.onClick = function (points, evt) {
                 console.log(points, evt);
             };
-            $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+            $scope.datasetOverride = [{yAxisID: 'y-axis-1'}, {yAxisID: 'y-axis-2'}];
             $scope.options = {
                 responsive: false,
                 maintainAspectRatio: false,
