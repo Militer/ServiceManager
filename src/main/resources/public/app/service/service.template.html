@@ -1,9 +1,4 @@
-<h1>{{test}}</h1>
-<p ng-repeat="service in services">
-    {{service.name}}
-</p>
-
-<table>
+<table class="centerChart">
     <tr>
         <th>Name</th>
         <th>Instances</th>
@@ -13,40 +8,24 @@
         <td>{{service.serviceInstances.length}}</td>
     </tr>
 </table>
-<!--<canvas id="bar"-->
-<!--width="340"-->
-<!--class="chart chart-bar"-->
-<!--chart-data="data"-->
-<!--chart-labels="labels"-->
-<!--chart-click="onClick"-->
-<!--chart-options="options">-->
-<!--</canvas>-->
-<!--<canvas id="line2" class="myChart chart chart-line" chart-data="data"-->
-<!--height="10" width="10"-->
-<!--chart-series="series" chart-options="options" chart-colors="colours"-->
-<!--chart-dataset-override="datasetOverride" chart-click="onClick">-->
-<!--</canvas>-->
+
 <div layout="column">
-    <div layout="row" flex>
-        <canvas id="line" class="myChart chart chart-line" chart-data="data"
-                chart-labels="labels"
-                chart-series="series" chart-options="options" chart-colors="colours"
-                chart-dataset-override="datasetOverride" chart-click="onClick" flex>
-        </canvas>
-        <div flex>
-            HEre we explain what is happening
+    <div ng-repeat="service in serviceInstances">
+        <div layout="row" layout-align="center center" flex>
+            <div style="min-width: 600px" flex>
+                <canvas class="centerChart chart chart-line"
+                        chart-colors="graph.colours"
+                        chart-options="graph.options"
+                        width="600"
+                        chart-data="service.data"
+                        chart-labels="service.labels" flex>
+                </canvas>
+            </div>
+            <div flex>
+                <p>Service Id: {{service.serviceId}}</p>
+                <p>Service IP: {{service.instanceInfo.ipAddr}}</p>
+                <p>Service Port: {{service.port}}</p>
+            </div>
         </div>
     </div>
-
-    <div layout="row" flex>
-        <canvas id="line2" class="myChart chart chart-line" chart-data="data"
-                chart-series="series" chart-options="options" chart-colors="colours"
-                chart-dataset-override="datasetOverride" chart-click="onClick" flex>
-        </canvas>
-        <div flex>
-            HEre we explain what is happening
-        </div>
-    </div>
-
-
 </div>

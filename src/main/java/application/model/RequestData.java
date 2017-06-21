@@ -11,6 +11,9 @@ public class RequestData {
     private String id, uri, method, serverInstanceUrl;
     private long startTime, endTime;
 
+    public RequestData() {
+    }
+
     public RequestData(String id, String uri, String method, long startTime) {
         this.id = id;
         this.uri = uri;
