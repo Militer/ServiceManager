@@ -3,9 +3,9 @@
  */
 angular
     .module('core')
-    .service('Service', ['$resource',
-        function ($resource) {
-            return $resource('/service', {}, {
+    .service('Service', ['$resource', 'MONITORING_SERVICE_BASE_URL',
+        function ($resource, MONITORING_SERVICE_BASE_URL) {
+            return $resource(MONITORING_SERVICE_BASE_URL + '/service', {}, {
                 query: {
                     isArray: true
                 }
