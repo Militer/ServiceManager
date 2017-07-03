@@ -3,4 +3,5 @@
  */
 angular
     .module('core', ['ngResource'])
-    .constant('MONITORING_SERVICE_BASE_URL', '/monitoring-service');
+    // .constant('MONITORING_SERVICE_BASE_URL', '/service-manager');
+    .constant('MONITORING_SERVICE_BASE_URL', '');

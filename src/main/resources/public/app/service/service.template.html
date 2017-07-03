@@ -7,12 +7,12 @@
         <td>{{service.name}}</td>
         <td>{{service.serviceInstances.length}}</td>
         <td>
-            <md-button class="md-icon-button" aria-label="Add service">
+            <md-button class="md-icon-button" aria-label="Add service" ng-click="startDockerContainer(service.name)">
                 <md-icon md-svg-icon="app/img/icons/ic_add_black_24px.svg"></md-icon>
             </md-button>
         </td>
         <td>
-            <md-button class="md-icon-button" aria-label="Add service">
+            <md-button class="md-icon-button" aria-label="Remove container" ng-click="removeDockerContainer(service.name)">
                 <md-icon md-svg-icon="app/img/icons/ic_remove_black_24px.svg"></md-icon>
             </md-button>
         </td>
