@@ -15,7 +15,7 @@ import java.util.List;
  * Date: 6/20/2017
  */
 @RestController
-@RequestMapping("/monitoring")
+@RequestMapping("/request-monitor")
 public class MonitoringController {
     @GetMapping(value="/{host}/{port}")
     public List<Long> getMonitoringData(@PathVariable(value="host") String host, @PathVariable(value="port") Integer port){

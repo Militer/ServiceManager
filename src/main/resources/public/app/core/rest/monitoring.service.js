@@ -5,7 +5,7 @@ angular
     .module('core')
     .service('MonitoringService', ['$resource', 'MONITORING_SERVICE_BASE_URL',
         function ($resource, MONITORING_SERVICE_BASE_URL) {
-            return $resource(MONITORING_SERVICE_BASE_URL + '/monitoring/:host/:port', {}, {
+            return $resource(MONITORING_SERVICE_BASE_URL + '/request-monitor/:host/:port', {}, {
                 get: {
                     isArray: true
                 }
